@@ -38,8 +38,7 @@
                 <!-- Start Profile -->
                 <div class="container">
                     <div class="ps-widget bgc-white bdrs4 overflow-hidden position-relative">
-                        <div class="packages_table table-responsive">
-                           
+                        <div class="packages_table table-responsive">                           
 
 
                         </div>
@@ -115,22 +114,6 @@
 
 
                         <!-- END -->
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     </div>
 
                 </div>

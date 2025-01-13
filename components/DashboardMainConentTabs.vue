@@ -4,11 +4,11 @@
     <div class="col-lg-12" style="margin-top: 10px;;">
       <div class="ui-content container">
         <div class="navpill-style1">
-          <ul class="nav nav-pills mb12" id="pills-tab" role="tablist">
+          <ul class="nav nav-pills overflow_auto mb12" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active fw500 dark-color" id="pills-home-tab" data-bs-toggle="pill"
                 data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
-                  class="fa fa-home" aria-hidden="true"></i>&nbsp;Dashboard</button>
+                  class="fa fa-grid" aria-hidden="true"></i>&nbsp;Dashboard</button>
             </li>
 
             <!-- <li class="nav-item" role="presentation">
@@ -26,7 +26,7 @@
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link fw500 dark-color" @click="mygig" aria-selected="false"><i class="fa fa-tasks"
-                  aria-hidden="true"></i>&nbsp;My GIG</button>
+                  aria-hidden="true"></i>&nbsp;My GIGs</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link fw500 dark-color" @click="myorders" aria-selected="false"><i
@@ -61,28 +61,28 @@
                       <div class="col-xl-7">
                         <div class="position-relative">
                           <!-- <h2>I will design website UI UX in adobe xd or figma</h2> -->
-                          <div class="list-meta d-sm-flex align-items-center mt30">
+                          <div class="list-meta d-flex align-items-center mt30">
                             <a class="position-relative freelancer-single-style" href="#">
                               <span class="online"></span>
-                              <img class=" wa-sm mb15-sm rounded-circle"
-                                style="height:150px; width: 150px; overflow: hidden; object-fit: cover;"
+                              <img class=" wa-sm mb15-sm profile_ rounded-circle"
                                 :src="profileLogo || '/blank_user.jpg'" alt="">
                             </a>
-                            <div class="ml20 ml0-xs">
-                              <h5 class="title mb-1">{{ name }} <b>(Seller Account)</b></h5>
+
+                            <div class="ml20 ml0-xs pro_details">
+                              <h5 class="title  mb-1">{{ name }} <b><u>Buyer</u></b></h5>
                               <p class="mb-0">{{ profName }}</p>
                               <!-- <p class="mb-0 dark-color fz15 fw500 list-inline-item mb5-sm d-none">
                                 <i class="fas fa-star vam fz10 review-color me-2"></i>
                                 0
                                 reviews
                               </p> -->
-                              <p class="mb-0 dark-color fz15 fw500 list-inline-item mb5-sm ml0-xs">
+                              <p class="mb-0 me-2 dark-color fz15 fw500 list-inline-item mb5-sm ml0-xs">
                                 <i class="flaticon-place vam fz20 me-2"></i>
                                 {{ countryName }}
                               </p>
-                              <p class="mb-0 dark-color fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
+                              <p class="mb-0 dark-color _date fz15 fw500 list-inline-item ml15 mb5-sm ml0-xs">
                                 <i class="flaticon-30-days vam fz20 me-2"></i>
-                                Join Date {{ joindate }}
+                                Join : {{ joindate }}
                               </p>
 
                             </div>
@@ -166,7 +166,7 @@
 
                         </div>
                         <hr class="opacity-100 mb60">
-                        <h4 class="mb30">Awards adn Certificates</h4>
+                        <h4 class="mb30">Awards & Certificates</h4>
                         <div class="educational-quality__">
                           <div class="wrapper mb40" v-for="cer in certificatedata" :key="cer.id">
                             <span class="tag">{{ cer.year }}</span>
@@ -183,14 +183,14 @@
 
                     <div class="col-lg-8">
 
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ usermsgData.name }}<br />
                         {{ usermsgData.messages }}<br />
                         {{ usermsgData.created_at }}<br />
                         <div align="right">
                           <nuxt-link to="/dashboard/notidificationBox">View More...</nuxt-link>
                         </div>
-                      </div>
+                      </div> -->
 
 
                       <div class="custom-tab-container">
@@ -229,7 +229,6 @@
                                 deliveryOrdersCount }}</span>
                             </a>
                           </li>
-
 
                           <li class="custom-tab-item nav-item" role="presentation">
                             <a class="custom-tab-link nav-link" id="complete-tab" data-bs-toggle="tab" href="#complete"
@@ -1066,7 +1065,8 @@ onMounted(() => {
 /* Responsive Tabs */
 @media (max-width: 767px) {
   .custom-nav-tabs {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
   }
 
   .custom-tab-item {
@@ -1098,5 +1098,12 @@ onMounted(() => {
   /* Retain original background color */
   color: inherit !important;
   /* Retain original text color */
+}
+
+@media(max-width: 576px) {
+
+  .custom-tab-link{
+    font-size: 12px;
+  }
 }
 </style>

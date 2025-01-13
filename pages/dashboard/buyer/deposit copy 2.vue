@@ -6,36 +6,27 @@
             <Header />
             <MobileMenu />
             <div class="body_content">
-
                 <section class="categories_list_section overflow-hidden">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="position-relative">
 
-                                    <!-- Left navigation button -->
-                                    <button class="btn btn-default btn_l position-absolute left-0"
-                                        @click="goToPrevSlide">
-                                        <i class="fa-solid fa-chevron-left"></i>
-                                    </button>
+                                    <button class="btn btn-default  btn_l position-absolute left-0"><i
+                                            class="fa-solid fa-chevron-left"></i></button>
+                                    <div class="listings_category_nav_list_menu">
 
-                                    <!-- Swiper container -->
-                                    <div class="swiper-container">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide" v-for="data in categoryData" :key="data.id">
+                                        <ul class="mb0 d-flex ps-0">
+                                            <li v-for="data in categoryData" :key="data.id">
                                                 <nuxt-link :to="`/category/${data.slug}`">
                                                     {{ data.name }}
                                                 </nuxt-link>
-                                            </div>
-                                        </div>
-
+                                            </li>
+                                            <!-- {{categoryData}} -->
+                                        </ul>
                                     </div>
-
-                                    <!-- Right navigation button -->
-                                    <button class="btn btn-default btn_r position-absolute right-0"
-                                        @click="goToNextSlide">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+                                    <button class="btn btn-default btn_r position-absolute right-0"><i
+                                            class="fa-solid fa-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -73,11 +64,6 @@
                     <form action="">
                         <div class="row">
                             <div class="col-md-5">
-                                
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Amount <span class="text-danger">*</span> </label>
-                                    <input type="number" placeholder="00.00" class="form-control" name="name">
-                                </div>
                                 <div class="button_list">
                                     <button class="btn_card active">
                                         <span>Creadit Card</span>
@@ -109,16 +95,16 @@
                                         <input type="text" class="form-control" id="number" name="number">
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <div class="mb-6 me-3">
+                                        <div class="mb-3 me-3">
                                             <label for="exdate" class="form-label">Expiration Date</label>
                                             <input type="text" class="form-control" id="exdate" name="exdate">
                                         </div>
-                                        <div class="mb-6">
+                                        <div class="mb-3">
                                             <label for="cvv" class="form-label">CVV Code</label>
                                             <input type="text" class="form-control" id="cvv" name="cvv">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+
                                 </div>
                             </div>
                         </div>
@@ -315,53 +301,10 @@ const getDeposit = async () => {
     }
 };
 
-const swiper = ref(null)
-
 onMounted(() => {
     getCatList();
     getDeposit();
 
-    swiper.value = new Swiper('.swiper-container', {
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.btn_r',
-            prevEl: '.btn_l'
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        breakpoints: {
-            1024: {
-                slidesPerView: 7,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 5,
-                spaceBetween: 15,
-            },
-            576: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-            },
-            320: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-            }
-        }
-    })
-    const goToPrevSlide = () => {
-        if (swiper.value) {
-            swiper.value.slidePrev()  // Go to previous slide
-        }
-    }
-
-    const goToNextSlide = () => {
-        if (swiper.value) {
-            swiper.value.slideNext()  // Go to next slide
-        }
-    }
 });
 
 </script>

@@ -99,7 +99,7 @@ export default defineNuxtConfig({
         { rel: "stylesheet", href: "/css/ud-custom-spacing.css" },
         { rel: "stylesheet", href: "/css/dashbord_navitaion.css" },
         { rel: "stylesheet", href: "/css/responsive.css" },
-        { rel: "stylesheet", href: "https://unpkg.com/swiper/swiper-bundle.min.css" },
+        { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.css" },
       ],
 
       // Add JavaScript files
@@ -118,7 +118,7 @@ export default defineNuxtConfig({
         { src: "/js/pricing-table.js", type: "text/javascript" },
         { src: "/js/script.js", type: "text/javascript" },  
         { src: "/js/dashboard-script.js", type: "text/javascript" },
-        { src: "https://unpkg.com/swiper/swiper-bundle.min.js", defer: true },
+        { src: "https://cdn.jsdelivr.net/npm/swiper@9.1.0/swiper-bundle.min.js", defer: true },
       ],
     },
   },
